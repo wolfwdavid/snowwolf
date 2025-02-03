@@ -105,3 +105,20 @@ button:focus:not(:focus-visible) {
 	width: 1px;
 	white-space: nowrap;
 }
+
+/* src/app.css */
+:root {
+	--background: #ffffff;
+	--text-color: #000000;
+  }
+  
+  [data-theme='dark'] {
+	--background: #121212;
+	--text-color: #ffffff;
+  }
+  
+  body {
+	background-color: var(--background);
+	color: var(--text-color);
+  }
+  
