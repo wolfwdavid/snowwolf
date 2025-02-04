@@ -1,8 +1,7 @@
 <script>
 	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
 	import wolf from '$lib/images/wolf.png';
+	import Marketing from './Marketing.svelte';
 
 	// Add a reactive search query variable
 	let searchQuery = '';
@@ -27,7 +26,9 @@
 	<h1>
 		<img alt="wolf" src={wolf}  width="50" height="50" />
 		Snow Wolf
+		
 		<hr class="styled-line">
+		Search engine supporting the underdogs
 
 
 <style>
@@ -64,8 +65,8 @@
 			<li>{item}</li>
 		{/each}
 	</ul>
-
-	<Counter />
+	<!---<Marketing />-->
+	<!---<Counter />-->
 </section>
 
 <style>
