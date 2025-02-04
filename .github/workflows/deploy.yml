@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
- BASE_PATH: '/MY-APP'
+ BASE_PATH: '/snowwolf'
         run: |
  npm run build
 
