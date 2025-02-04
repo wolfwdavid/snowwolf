@@ -5,8 +5,6 @@
 </script>
 
 <header>
-	
-
 	<nav>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
@@ -29,69 +27,62 @@
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
 	</nav>
-
-	
 </header>
 
 <style>
+	/* Ensure header spans the full width of the screen */
 	header {
 		display: flex;
-		justify-content: space-between;
-		width: 100%;
-	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
+		justify-content: center; /* Center the content */
 		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
+		width: 100vw; /* Full viewport width */
+		background: var(--background); /* Ensures background consistency */
+		position: fixed; /* Sticks the header to the top */
+		top: 0;
+		left: 0;
+		z-index: 1000; /* Keeps it above other content */
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow */
 	}
 
 	nav {
 		display: flex;
-		flex-grow: 1; /* Ensure the nav grows to fill the available space */
-		justify-content: center;
-		width: 100%; /* Make nav stretch across the full width */
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 1200px; /* Prevents content from stretching too much */
+		padding: 0 1rem; /* Adds padding for spacing */
 	}
 
 	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
+		margin: 0;
+		padding: 0;
 		list-style: none;
 		background: var(--background);
-		width: 100%; /* Make ul stretch to fill the nav */
 	}
 
 	li {
 		position: relative;
-		height: 100%;
+		height: 3em;
+		padding: 0 1rem;
+		display: flex;
+		align-items: center;
+	}
+
+	/* Smaller divider using ::after pseudo-element */
+	li:not(:last-child)::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 40%; /* Adjust to make dividers smaller */
+		width: 1px;
+		background: var(--color-text);
+		opacity: 0.7; /* Optional: Makes divider slightly transparent */
 	}
 
 	li[aria-current='page']::before {
@@ -110,10 +101,10 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 		color: var(--color-text);
 		font-weight: 700;
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
@@ -122,5 +113,15 @@
 
 	a:hover {
 		color: var(--color-theme-1);
+	}
+
+	svg {
+		width: 2em;
+		height: 3em;
+		display: block;
+	}
+
+	path {
+		fill: var(--background);
 	}
 </style>

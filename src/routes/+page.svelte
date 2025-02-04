@@ -69,55 +69,45 @@
 </section>
 
 <style>
+	/* Centering the section */
 	section {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
+		width: 100%;
+		text-align: center;
 	}
 
-	h1 {
+	/* New container to center the search bar */
+	.search-container {
+		display: flex;
+		justify-content: center;  /* Centers the search bar */
 		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+		margin-top: 1rem;
 	}
 
 	/* Search bar styling */
 	.search-bar {
-		margin-top: 1rem;
 		display: flex;
 		align-items: center;
 		background-color: #e6b8ee;  /* Light purple background */
 		border-radius: 25px;  /* More rounded corners */
-		width: 100%;  /* Take full width of the container */
-		max-width: 400px;  /* Optional: limit the maximum width */
+		width: 100%;
+		max-width: 450px;  /* Limit max width */
 		padding: 0.5rem;
+		margin: 0 auto;  /* Ensure search bar is centered */
 	}
 
 	.search-bar input {
 		border: none;
 		outline: none;
-		width: 100%;  /* Ensure input takes full available width */
+		width: 100%;
 		font-size: 1rem;
 		color: #000000;
-		padding: 0.8rem 1rem;  /* Extra padding to make it thicker */
-		border-radius: 25px;  /* Rounded corners to match the bar */
-		background-color: transparent;  /* Transparent input background */
+		padding: 0.8rem 1rem;
+		border-radius: 25px;
+		background-color: transparent;
 	}
 
 	/* Search icon on the right side */
