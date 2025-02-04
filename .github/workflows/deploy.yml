@@ -2,21 +2,15 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 
+    branches:
       - main
 
 jobs:
   build_site:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
-
-      # If you're using pnpm, uncomment this and update commands accordingly
-      # - name: Install pnpm
-      #   uses: pnpm/action-setup@v3
-      #   with:
-      #     version: 8
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -27,15 +21,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build the site
         env:
-          BASE_PATH: '/snowwolf'
+          BASE_PATH: '/snowwolf'  # Ensure this matches your GitHub repo name
         run: npm run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build/'  # Ensure this matches your static adapter output directory
+          path: 'build/'  # Ensure the correct output directory is uploaded
 
   deploy:
     needs: build_site
@@ -47,10 +41,9 @@ jobs:
 
     environment:
       name: github-pages
-      url: https://wolfwdavid.github.io/snowwolf/
+      url: https://wolfwdavid.github.io/snowwolf/  # Ensure this matches your GitHub Pages URL
 
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
