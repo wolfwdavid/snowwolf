@@ -48,7 +48,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://wolfwdavid.github.io/snowwolf/
 
     steps:
       - name: Deploy
