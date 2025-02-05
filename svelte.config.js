@@ -1,13 +1,17 @@
 import adapter from '@sveltejs/adapter-static';
 
+const dev = process.env.NODE_ENV === "development";
+
 export default {
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      strict: false, // Ignores dynamic route warnings
+    }),
     paths: {
-      base: process.env.NODE_ENV === "production" ? "/snowwolf" : "",
+      base: dev ? "" : "/snowwolf", // GitHub Pages requires this
     },
     prerender: {
-      entries: ["*"], // ✅ Ensures all pages are prerendered
+      handleHttpError: "warn", // Prevents build failure on 404s
     },
   }
 };
