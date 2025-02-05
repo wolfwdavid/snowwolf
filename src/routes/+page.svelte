@@ -16,7 +16,7 @@
 <section>
 	<h1>
 		<img alt="wolf" src={wolf} width="50" height="50" />
-		Snow Wolf
+		SNOWWOLF
 	</h1>
 
 	<hr class="styled-line">
@@ -38,20 +38,37 @@
 		</div>
 	</div>
 
-	<!-- Buttons for Categories -->
+	<!-- Buttons for Categories with Trending | Emerging -->
 	<div class="categories">
 		{#each categories as category}
-			<button class="category-button">{category}</button>
+			<div class="category-container">
+				<button class="category-button">{category}</button>
+				<div class="subtext">
+					<span>Trending</span>
+					<span class="separator">|</span>
+					<span>Emerging</span>
+				</div>
+				<!-- Show two sets of tiles side by side only for Marketing -->
+				{#if category === "Marketing"}
+					<div class="tiles-wrapper">
+						<div class="tiles-grid">
+							{#each Array(6) as _, i}
+								<div class="tile"></div>
+							{/each}
+						</div>
+						<div class="tiles-grid">
+							{#each Array(6) as _, i}
+								<div class="tile"></div>
+							{/each}
+						</div>
+					</div>
+				{/if}
+			</div>
 		{/each}
 	</div>
-
-	<!-- Optional display filtered items -->
-	<ul>
-		{#each categories.filter(item => item.toLowerCase().includes(searchQuery.toLowerCase())) as item}
-			<li>{item}</li>
-		{/each}
-	</ul>
 </section>
+
+<div class="footer-gradient"></div>
 
 <style>
 	/* Center the section */
@@ -63,6 +80,8 @@
 		width: 100%;
 		text-align: center;
 		padding: 2rem 0;
+		position: relative;
+		z-index: 2;
 	}
 
 	/* Styled line */
@@ -111,27 +130,72 @@
 		margin-left: 8px;
 	}
 
+	/* Category Container */
+	.category-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 5px;
+	}
+
 	/* Category Buttons */
 	.categories {
 		display: flex;
-		gap: 15px;
-		margin-top: 20px;
+		justify-content: space-evenly;
+		width: 100%;
+		max-width: 900px;
+		margin: 30px auto;
 	}
 
 	.category-button {
 		background-color: #e0b3ff;
 		color: black;
 		font-weight: bold;
-		padding: 10px 20px;
-		border-radius: 25px;
+		padding: 15px 40px;
+		border-radius: 50px;
 		font-size: 18px;
 		border: none;
 		box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 		transition: background-color 0.3s ease-in-out;
 		cursor: pointer;
+		position: relative;
 	}
 
 	.category-button:hover {
 		background-color: #d49fff;
+	}
+
+	/* Trending & Emerging Text */
+	.subtext {
+		display: flex;
+		gap: 10px;
+		font-size: 14px;
+		color: #666;
+	}
+
+	.separator {
+		color: #999;
+		font-weight: bold;
+	}
+
+	/* Tiles Grid Side by Side */
+	.tiles-wrapper {
+		display: flex;
+		gap: 15px;
+		margin-top: 10px;
+		z-index: 3;
+	}
+
+	.tiles-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 30px);
+		gap: 5px;
+	}
+
+	.tile {
+		width: 30px;
+		height: 30px;
+		background-color: #e6b8ee;
+		border-radius: 5px;
 	}
 </style>
