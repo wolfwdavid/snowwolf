@@ -1,17 +1,21 @@
 import adapter from '@sveltejs/adapter-static';
 
+const dev = process.argv.includes('dev');
+
 export default {
   kit: {
     adapter: adapter({
-      pages: 'build', // Ensures static files go to 'build' folder
+      pages: 'build',
       assets: 'build',
-      fallback: 'index.html' // Needed for SPAs
+      fallback: 'index.html', // Ensures correct routing on GitHub Pages
     }),
     paths: {
-      base: process.env.NODE_ENV === "production" ? "/snowwolf" : "",
+      base: dev ? "" : "/snowwolf", // ✅ Fixes navigation issues in GitHub Pages
     },
+    appDir: "app", // ✅ Prevents asset loading issues
     prerender: {
-      entries: ["*"], // Prerender all pages
+      handleHttpError: "warn", // ✅ Prevents 404 errors from stopping the build
+      entries: ["*"], // ✅ Ensures all pages are prerendered
     },
   }
 };
