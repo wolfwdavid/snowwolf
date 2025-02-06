@@ -14,8 +14,7 @@ export default {
     },
     appDir: "app", // ✅ Prevents asset loading issues
     prerender: {
-      handleHttpError: "warn", // ✅ Prevents 404 errors from stopping the build
-      entries: ["*"], // ✅ Ensures all pages are prerendered
+      handleHttpError: "warn" // ✅ No error now
     },
   }
-}; 
+};
