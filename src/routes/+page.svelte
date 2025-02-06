@@ -14,13 +14,14 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<img alt="wolf" src={wolf} width="50" height="50" />
-		SNOWWOLF
-	</h1>
+	<div class="logo-container">
+        <img alt="wolf" src={wolf} width="50" height="50" />
+        <span class="logo-text">SNOWWOLF</span>
+        <span class="tagline">Search engine supporting the underdogs</span>
+    </div>
 
 	<hr class="styled-line">
-	<p>Search engine supporting the underdogs</p>
+	
 
 	<!-- Search Bar -->
 	<div class="search-container">
