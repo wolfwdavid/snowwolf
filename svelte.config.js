@@ -18,4 +18,4 @@ export default {
       entries: ["*"], // ✅ Ensures all pages are prerendered
     },
   }
-};
+}; 
