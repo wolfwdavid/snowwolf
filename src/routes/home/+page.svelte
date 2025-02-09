@@ -1,5 +1,5 @@
 <script>
-    import wolf from "$lib/images/wolf.png";
+    import wolf from "$lib/images/snowwolf.png";
     let searchQuery = "";
 
     const categories = ["Marketing", "AI Tools", "Business"];
@@ -12,33 +12,32 @@
 
 <!-- 🏡 HOME PAGE CONTAINER -->
 <section class="home-page">
+    <!-- 🌐 NAVIGATION -->
     <header class="nav">
-        <a href="/" class="logo">
+        <div class="logo">
             <img alt="wolf" src={wolf} width="60" height="60" />
             <span class="logo-text">SNOWWOLF</span>
-        </a>
-        <nav class="menu">
-            <a href="/home">HOME</a>
-            <a href="/directory">DIRECTORY</a>
-            <a href="/list">GET LISTED</a>
-            <a href="/signup">CREATE AN ACCOUNT</a>
-        </nav>
+        </div>
     </header>
 
     <h2 class="tagline">Find emerging startups & latest tools</h2>
 
-    <!-- SEARCH BAR -->
+    <!-- 🔍 SEARCH BAR -->
     <div class="search-container">
         <div class="search-bar">
-            <input type="text" placeholder="What is your business and what are you looking for?"
-                bind:value={searchQuery} aria-label="Search" />
+            <input 
+                type="text" 
+                placeholder="What is your business and what are you looking for?" 
+                bind:value={searchQuery} 
+                aria-label="Search" 
+            />
             <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm9.7 5.3l-5.1-5.1a7.9 7.9 0 0 0 1.1-4.2 8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.2-1.1l5.1 5.1a1 1 0 1 0 1.4-1.4z" />
+                <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm9.7 5.3l-5.1-5.1a7.9 7.9 0 0 0 1.1-4.2 8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.2-1.1l5.1 5.1a1 1 0 1 0 1.4-1.4z"/>
             </svg>
         </div>
     </div>
 
-    <!-- CATEGORY SECTIONS -->
+    <!-- 📌 CATEGORY SECTIONS -->
     <div class="categories">
         {#each categories as category}
         <div class="category-container">
@@ -46,37 +45,38 @@
             <div class="subtext">
                 <span>Trending</span> <span class="separator">|</span> <span>Emerging</span>
             </div>
-            <!-- Trending Business List -->
+            
+            <!-- 🎯 Display Grid for "Marketing" category -->
             {#if category === "Marketing"}
             <div class="marketing-grid">
-                <div class="company-item">
-                    <div class="icon">📈</div>
-                    <div class="name">Company Name</div>
-                    <div class="bar"><div class="progress" style="width: 80%;"></div></div>
-                    <div class="percent">80%</div>
-                </div>
-                {#each Array(5) as _, i}
-                <div class="company-item">
-                    <div class="icon">📊</div>
-                    <div class="bar"><div class="progress" style="width: 67%;"></div></div>
-                    <div class="percent">67%</div>
-                </div>
+                {#each Array(6) as _, row}  <!-- Creates 6 rows -->
+                    <div class="company-row">
+                        {#each Array(2) as _, col}  <!-- Creates 2 columns inside each row -->
+                            <div class="company-item">
+                                <div class="icon">📊</div>
+                                <div class="bar">
+                                    <div class="progress" style="width: {row === 0 && col === 0 ? '80%' : '67%'};"></div>
+                                </div>
+                                <div class="percent">{row === 0 && col === 0 ? '80%' : '67%'}</div>
+                            </div>
+                        {/each}
+                    </div>
                 {/each}
             </div>
-            {/if}
+            {/if}  
         </div>
-        {/each}
+        {/each}  
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- 📌 FOOTER -->
 <footer class="footer">
     <p>Trending Tools & Profiles</p>
     <h1>HOME PAGE</h1>
 </footer>
 
 <style>
-    /* General Styling */
+    /* 🌟 GENERAL STYLES */
     * {
         box-sizing: border-box;
         font-family: Arial, sans-serif;
@@ -88,35 +88,29 @@
         padding-bottom: 50px;
     }
 
-    /* NAVIGATION */
+    /* 🌐 NAVIGATION */
     .nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        padding: 15px 40px;
-        border-bottom: 1px solid #ddd;
+        padding: 15px;
     }
 
     .logo {
         display: flex;
         align-items: center;
-        font-size: 24px;
-        font-weight: bold;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
     }
 
     .logo-text {
-        margin-left: 10px;
+        font-size: 32px;
+        font-weight: bold;
         color: #5f5fff;
     }
 
-    .menu a {
-        margin: 0 15px;
-        text-decoration: none;
-        font-size: 16px;
-        color: black;
-    }
-
-    /* SEARCH BAR */
+    /* 🔍 SEARCH BAR */
     .search-container {
         display: flex;
         justify-content: center;
@@ -148,7 +142,7 @@
         margin-left: 8px;
     }
 
-    /* CATEGORY SECTIONS */
+    /* 📌 CATEGORY SECTIONS */
     .categories {
         display: flex;
         justify-content: space-evenly;
@@ -179,7 +173,7 @@
         color: #666;
     }
 
-    /* MARKETING GRID */
+    /* 📊 MARKETING GRID */
     .marketing-grid {
         display: flex;
         flex-direction: column;
@@ -188,11 +182,21 @@
         margin-top: 10px;
     }
 
+    .company-row {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
     .company-item {
         display: flex;
         align-items: center;
-        width: 250px;
+        width: 200px;
         gap: 10px;
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .icon {
@@ -202,7 +206,7 @@
     }
 
     .bar {
-        width: 100%;
+        width: 100px;
         background: #ddd;
         height: 10px;
         border-radius: 5px;
@@ -219,7 +223,7 @@
         font-weight: bold;
     }
 
-    /* FOOTER */
+    /* 📌 FOOTER */
     .footer {
         background: linear-gradient(to top, #8b5cf6, #ffffff);
         padding: 40px;
