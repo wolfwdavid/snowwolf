@@ -6,8 +6,8 @@ export default {
   kit: {
     adapter: adapter(),
     paths: {
-      base: dev ? '' : '/snowwolf',  // 🔥 FORCE `snowwolf`
-      assets: dev ? undefined : 'https://wolfwdavid.github.io/snowwolf'            // ✅ Prevents absolute path issues
+      base: dev ? '' : '/snowwolf', // ✅ Works for GitHub Pages
+      assets: dev ? undefined : '/snowwolf/' // ✅ Fix absolute path issues
     },
     appDir: 'app',
     prerender: {
