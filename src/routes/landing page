@@ -1,7 +1,5 @@
 <script>
-	import Counter from './Counter.svelte';
 	import wolf from '$lib/images/wolf.png';
-	import Marketing from './Marketing.svelte';
 
 	let searchQuery = '';
 
@@ -15,13 +13,12 @@
 
 <section>
 	<div class="logo-container">
-        <img alt="wolf" src={wolf} width="50" height="50" />
+        <img alt="wolf" src="/images/wolf.png" width="50" height="50" />
         <span class="logo-text">SNOWWOLF</span>
         <span class="tagline">Search engine supporting the underdogs</span>
     </div>
 
 	<hr class="styled-line">
-	
 
 	<!-- Search Bar -->
 	<div class="search-container">
@@ -32,14 +29,13 @@
 				bind:value={searchQuery}
 				aria-label="Search"
 			/>
-			<!-- Magnifying Glass Icon -->
-			<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+			<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
 				<path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm9.7 5.3l-5.1-5.1a7.9 7.9 0 0 0 1.1-4.2 8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.2-1.1l5.1 5.1a1 1 0 1 0 1.4-1.4z"/>
 			</svg>
 		</div>
 	</div>
 
-	<!-- Buttons for Categories with Trending | Emerging -->
+	<!-- Category Buttons with Trending | Emerging -->
 	<div class="categories">
 		{#each categories as category}
 			<div class="category-container">
@@ -49,19 +45,15 @@
 					<span class="separator">|</span>
 					<span>Emerging</span>
 				</div>
-				<!-- Show two sets of tiles side by side only for Marketing -->
 				{#if category === "Marketing"}
 					<div class="tiles-wrapper">
-						<div class="tiles-grid">
-							{#each Array(6) as _, i}
-								<div class="tile"></div>
-							{/each}
-						</div>
-						<div class="tiles-grid">
-							{#each Array(6) as _, i}
-								<div class="tile"></div>
-							{/each}
-						</div>
+						{#each [1, 2] as _}
+							<div class="tiles-grid">
+								{#each Array(6) as _}
+									<div class="tile"></div>
+								{/each}
+							</div>
+						{/each}
 					</div>
 				{/if}
 			</div>
@@ -72,7 +64,6 @@
 <div class="footer-gradient"></div>
 
 <style>
-	/* Center the section */
 	section {
 		display: flex;
 		flex-direction: column;
@@ -85,7 +76,6 @@
 		z-index: 2;
 	}
 
-	/* Styled line */
 	.styled-line {
 		border: 0;
 		border-top: 2px solid #e6b8ee;
@@ -93,7 +83,6 @@
 		width: 80%;
 	}
 
-	/* Search Bar Container */
 	.search-container {
 		display: flex;
 		justify-content: center;
@@ -101,7 +90,6 @@
 		margin-top: 1rem;
 	}
 
-	/* Search Bar */
 	.search-bar {
 		display: flex;
 		align-items: center;
@@ -131,7 +119,6 @@
 		margin-left: 8px;
 	}
 
-	/* Category Container */
 	.category-container {
 		display: flex;
 		flex-direction: column;
@@ -139,7 +126,6 @@
 		gap: 5px;
 	}
 
-	/* Category Buttons */
 	.categories {
 		display: flex;
 		justify-content: space-evenly;
@@ -166,7 +152,6 @@
 		background-color: #d49fff;
 	}
 
-	/* Trending & Emerging Text */
 	.subtext {
 		display: flex;
 		gap: 10px;
@@ -179,7 +164,6 @@
 		font-weight: bold;
 	}
 
-	/* Tiles Grid Side by Side */
 	.tiles-wrapper {
 		display: flex;
 		gap: 15px;
@@ -200,8 +184,7 @@
 		border-radius: 5px;
 	}
 
-	 /* Logo Text and Tagline Styles */
-	 .logo-container {
+	.logo-container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -214,24 +197,16 @@
         font-family: 'Arial', sans-serif;
         font-weight: bold;
         font-size: 48px;
-        color: #5f5fff; /* Soft purple to match the image's vibe */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow effect for the logo text */
+        color: #5f5fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .tagline {
         font-family: 'Arial', sans-serif;
         font-size: 18px;
-        color: #7f7f7f; /* Soft grayish color */
+        color: #7f7f7f;
         font-style: italic;
         margin-top: 10px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Soft shadow for the tagline */
-    }
-
-    /* Styled line */
-    .styled-line {
-        border: 0;
-        border-top: 2px solid #e6b8ee;
-        margin: 20px 0;
-        width: 80%;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
     }
 </style>

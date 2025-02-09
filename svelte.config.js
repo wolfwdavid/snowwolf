@@ -1,15 +1,14 @@
 import adapter from '@sveltejs/adapter-static';
 
-const dev = process.env.NODE_ENV !== 'production';
+const dev = process.env.NODE_ENV !== 'production'; // ✅ Ensure this is defined BEFORE usage
 
 export default {
   kit: {
     adapter: adapter(),
     paths: {
-      base: dev ? '' : '/snowwolf', // ✅ Works for GitHub Pages
-      assets: dev ? undefined : '/snowwolf/' // ✅ Fix absolute path issues
+      base: dev ? '' : '/snowwolf' // ✅ Use `dev` safely
     },
-    appDir: 'app',
+    appDir: 'snowwolf',
     prerender: {
       entries: ["*"]
     }

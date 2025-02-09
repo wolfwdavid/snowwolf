@@ -1,18 +1,13 @@
 <script>
 	import Header from './Header.svelte';
 	import '../app.css';
-
-	/** @type {{children: import('svelte').Snippet}} */
-	export let children;
 </script>
 
 <div class="app">
 	<Header />
 
 	<main>
-		{#if children}
-			{@html children}
-		{/if}
+		<slot />  <!-- ✅ This ensures child pages render properly -->
 	</main>
 
 	<footer>
