@@ -3,20 +3,20 @@
 	import '../app.css';
 
 	/** @type {{children: import('svelte').Snippet}} */
-	let { children } = $props();
+	export let children;
 </script>
 
 <div class="app">
 	<Header />
 
 	<main>
-		{@render children()}
+		{#if children}
+			{@html children}
+		{/if}
 	</main>
 
 	<footer>
-		<p>
-			
-		</p>
+		<p>&copy; {new Date().getFullYear()} Snowwolf. All Rights Reserved.</p>
 	</footer>
 </div>
 
@@ -44,27 +44,17 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
-	}
-
-	footer a {
+		width: 100%;
+		background: linear-gradient(to top, #8b5cf6, #ffffff);
+		min-height: 150px;
 		font-weight: bold;
+		color: #333;
+		text-align: center;
 	}
 
 	@media (min-width: 480px) {
 		footer {
-			padding: 12px 0;
+			padding: 16px 0;
 		}
 	}
-
-	footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-    width: 100%;
-    background: linear-gradient(to top, #8b5cf6, #ffffff);
-    height: 200px; /* Adjust height as needed */
-}
-
 </style>
