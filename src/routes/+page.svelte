@@ -7,20 +7,21 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Welcome to Snowwolf</title>
+	<meta name="description" content="Discover new business tools & emerging startups." />
 </svelte:head>
 
-<section>
+<!-- 🏡 Landing Page Content -->
+<section class="landing-page">
 	<div class="logo-container">
-        <img alt="wolf" src="/images/wolf.png" width="50" height="50" />
-        <span class="logo-text">SNOWWOLF</span>
+        <img alt="wolf" src={wolf} width="50" height="50" />
+        <span class="logo-text">SNOW WOLF</span>
         <span class="tagline">Search engine supporting the underdogs</span>
     </div>
 
 	<hr class="styled-line">
 
-	<!-- Search Bar -->
+	<!-- 🔍 Search Bar -->
 	<div class="search-container">
 		<div class="search-bar">
 			<input
@@ -29,13 +30,13 @@
 				bind:value={searchQuery}
 				aria-label="Search"
 			/>
-			<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+			<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
 				<path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm9.7 5.3l-5.1-5.1a7.9 7.9 0 0 0 1.1-4.2 8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.2-1.1l5.1 5.1a1 1 0 1 0 1.4-1.4z"/>
 			</svg>
 		</div>
 	</div>
 
-	<!-- Category Buttons with Trending | Emerging -->
+	<!-- 🌟 Category Section -->
 	<div class="categories">
 		{#each categories as category}
 			<div class="category-container">
@@ -64,16 +65,19 @@
 <div class="footer-gradient"></div>
 
 <style>
-	section {
+	/* 📌 PAGE STYLING */
+	.landing-page {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
+		height: 100vh;
 		text-align: center;
 		padding: 2rem 0;
 		position: relative;
 		z-index: 2;
+		background: linear-gradient(to bottom, #e6b8ee, #ffffff);
 	}
 
 	.styled-line {
@@ -83,6 +87,7 @@
 		width: 80%;
 	}
 
+	/* 🔍 SEARCH BAR */
 	.search-container {
 		display: flex;
 		justify-content: center;
@@ -119,6 +124,7 @@
 		margin-left: 8px;
 	}
 
+	/* 📌 CATEGORY STYLES */
 	.category-container {
 		display: flex;
 		flex-direction: column;
@@ -143,9 +149,9 @@
 		font-size: 18px;
 		border: none;
 		box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-		transition: background-color 0.3s ease-in-out;
 		cursor: pointer;
 		position: relative;
+		transition: 0.3s ease-in-out;
 	}
 
 	.category-button:hover {
@@ -184,29 +190,30 @@
 		border-radius: 5px;
 	}
 
+	/* 📌 LOGO CENTERING */
 	.logo-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
 
-    .logo-text {
-        font-family: 'Arial', sans-serif;
-        font-weight: bold;
-        font-size: 48px;
-        color: #5f5fff;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    }
+	.logo-text {
+		font-family: 'Arial', sans-serif;
+		font-weight: bold;
+		font-size: 48px;
+		color: #5f5fff;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+	}
 
-    .tagline {
-        font-family: 'Arial', sans-serif;
-        font-size: 18px;
-        color: #7f7f7f;
-        font-style: italic;
-        margin-top: 10px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
-    }
+	.tagline {
+		font-family: 'Arial', sans-serif;
+		font-size: 18px;
+		color: #7f7f7f;
+		font-style: italic;
+		margin-top: 10px;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+	}
 </style>
