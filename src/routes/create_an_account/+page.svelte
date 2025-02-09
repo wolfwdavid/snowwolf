@@ -1,0 +1,204 @@
+<script>
+    let showPassword = false;
+    let showConfirmPassword = false;
+
+    function togglePassword() {
+        showPassword = !showPassword;
+    }
+
+    function toggleConfirmPassword() {
+        showConfirmPassword = !showConfirmPassword;
+    }
+</script>
+
+<svelte:head>
+    <title>Create an Account</title>
+    <meta name="description" content="Sign up for Snowwolf and explore new tools!" />
+</svelte:head>
+
+<!-- 🌟 Main Signup Container -->
+<div class="signup-container">
+    <!-- 📌 Glassmorphism Form -->
+    <div class="form-container">
+        <h2>Create a New Account</h2>
+        <p>Join Snowwolf Today</p>
+
+        <form>
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your full name" />
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" />
+            </div>
+
+            <div class="input-group password-group">
+                <label>Password</label>
+                <input type={showPassword ? "text" : "password"} placeholder="Enter password" />
+                <span class="toggle-icon" on:click={togglePassword}>
+                    {showPassword ? '🙈' : '👁️'}
+                </span>
+            </div>
+
+            <div class="input-group password-group">
+                <label>Confirm Password</label>
+                <input type={showConfirmPassword ? "text" : "password"} placeholder="Confirm password" />
+                <span class="toggle-icon" on:click={toggleConfirmPassword}>
+                    {showConfirmPassword ? '🙈' : '👁️'}
+                </span>
+            </div>
+
+            <button type="submit" class="signup-btn">Sign Up</button>
+            <p class="login-text">Already have an account? <a href="/login">Log in</a></p>
+        </form>
+    </div>
+
+    <!-- 🎨 Decorative Image Side -->
+    <div class="image-container">
+        <img src="/images/signup-illustration.png" alt="Signup Illustration" />
+    </div>
+</div>
+
+<style>
+    /* 🌟 GENERAL STYLES */
+    * {
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to bottom right, #d4f1c4, #eff5e5);
+    }
+
+    /* 📌 MAIN CONTAINER */
+    .signup-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        max-width: 1000px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 🎨 FORM STYLING */
+    .form-container {
+        flex: 1;
+        padding: 40px;
+        text-align: left;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        outline: none;
+        font-size: 16px;
+    }
+
+    /* 👁️ PASSWORD TOGGLE */
+    .password-group {
+        position: relative;
+    }
+
+    .toggle-icon {
+        position: absolute;
+        right: 10px;
+        top: 38px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    /* 🚀 SIGNUP BUTTON */
+    .signup-btn {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+
+    .signup-btn:hover {
+        background: linear-gradient(to right, #2575fc, #6a11cb);
+    }
+
+    .login-text {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .login-text a {
+        color: #6a11cb;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* 📷 IMAGE SECTION */
+    .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 📱 RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+        .signup-container {
+            flex-direction: column;
+        }
+
+        .form-container {
+            width: 100%;
+        }
+
+        .image-container {
+            display: none;
+        }
+    }
+</style>

@@ -19,8 +19,8 @@
 			<li aria-current={page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
 				<a href="/sverdle">Get Listed</a>
 			</li>
-			<li aria-current={page.url.pathname.startsWith('/create an account') ? 'page' : undefined}>
-				<a href="/sverdle">Create an Account</a>
+			<li aria-current={page.url.pathname.startsWith('/create_an_account') ? 'page' : undefined}>
+				<a href="/create_an_account">Create an Account</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
