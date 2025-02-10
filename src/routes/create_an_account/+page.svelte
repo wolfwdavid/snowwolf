@@ -60,14 +60,14 @@
 
 <svelte:head>
     <title>Create an Account</title>
-    <meta name="description" content="Sign up for Snowwolf and explore new tools!" />
+    <meta name="description" content="Sign up for Snow Wolf and explore new tools!" />
 </svelte:head>
 
 <!-- 🌟 SIGNUP CONTAINER -->
 <div class="signup-container">
     <div class="form-container">
         <h2>Create a New Account</h2>
-        <p>Join Snowwolf Today</p>
+        <p>Join Snow Wolf Today</p>
 
         {#if errorMessage}
             <p class="error-message">{errorMessage}</p>
