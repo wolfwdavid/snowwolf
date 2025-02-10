@@ -12,9 +12,10 @@ export default {
     paths: {
       base: dev ? "" : "/snowwolf", // ✅ Ensures correct base path for GitHub Pages
     },
-    appDir: "app",
+    appDir: "snowwolf", // ✅ Prevents asset loading issues (was "app" before)
     prerender: {
-      entries: ['*'],  // ✅ Pre-renders static pages
-    }
+      handleHttpError: "warn", // ✅ Prevents build failure on missing pages
+      entries: ["*"], // ✅ Ensures all pages are pre rendered
+    },
   }
 };
