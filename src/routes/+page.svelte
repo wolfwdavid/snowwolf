@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>Welcome to Snowwolf</title>
+	<title>Welcome to Snow Wolf</title>
 	<meta name="description" content="Discover new business tools & emerging startups." />
 </svelte:head>
 
