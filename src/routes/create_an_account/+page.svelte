@@ -78,8 +78,9 @@
 
         <form on:submit={registerUser}>
             <div class="input-group">
-                <label>Full Name</label>
-                <input type="text" placeholder="Enter your full name" bind:value={fullName} required />
+            <label for="fullName">Full Name</label>
+            <input id="fullName" type="text" placeholder="Enter your full name" bind:value={fullName} required />
+
             </div>
 
             <div class="input-group">
@@ -90,9 +91,10 @@
             <div class="input-group password-group">
                 <label>Password</label>
                 <input type={showPassword ? "text" : "password"} placeholder="Enter password" bind:value={password} required />
-                <span class="toggle-icon" on:click={togglePassword}>
+                <button type="button" class="toggle-icon" on:click={togglePassword} aria-label="Toggle password visibility">
                     {showPassword ? '🙈' : '👁️'}
-                </span>
+                </button>
+                
             </div>
 
             <div class="input-group password-group">
