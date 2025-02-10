@@ -1,16 +1,20 @@
 import adapter from '@sveltejs/adapter-static';
 
-const dev = process.env.NODE_ENV !== 'production'; // ✅ Ensure this is defined BEFORE usage
+const dev = process.argv.includes('dev');
 
 export default {
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: 'index.html',  // ✅ Required for GitHub Pages to handle routes
+    }),
     paths: {
-      base: dev ? '' : '/snowwolf' // ✅ Use `dev` safely
+      base: dev ? "" : "/snowwolf", // ✅ Ensures correct base path for GitHub Pages
     },
-    appDir: 'snowwolf',
+    appDir: "app",
     prerender: {
-      entries: ["*"]
+      entries: ['*'],  // ✅ Pre-renders static pages
     }
   }
 };
