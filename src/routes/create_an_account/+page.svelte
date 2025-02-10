@@ -56,6 +56,7 @@
         }
     }
 </script>
+<a href="{base}/dashboard">Go to Dashboard</a>
 
 <svelte:head>
     <title>Create an Account</title>

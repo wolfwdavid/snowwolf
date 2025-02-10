@@ -7,15 +7,15 @@ export default {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: 'index.html',  // ✅ Required for GitHub Pages to handle routes
+      fallback: 'index.html',
     }),
     paths: {
-      base: dev ? "" : "/snowwolf", // ✅ Ensures correct base path for GitHub Pages
+      base: dev ? "" : "/snowwolf",
     },
-    appDir: "snowwolf", // ✅ Prevents asset loading issues (was "app" before)
+    appDir: "app",
     prerender: {
-      handleHttpError: "warn", // ✅ Prevents build failure on missing pages
-      entries: ["*"], // ✅ Ensures all pages are pre rendered
-    },
+      handleHttpError: 'warn',
+      entries: ['*'],
+    }
   }
 };

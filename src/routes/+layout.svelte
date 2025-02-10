@@ -1,8 +1,11 @@
 <script>
 	import Header from './Header.svelte';
 	import '../app.css';
+	import { base } from '$app/paths';
 </script>
 
+<a href="{base}/home">Home</a>
+<a href="{base}/create_an_account">Sign Up</a>
 <div class="app">
 	<Header />
 
@@ -11,7 +14,7 @@
 	</main>
 
 	<footer>
-		<p>&copy; {new Date().getFullYear()} Snowwolf. All Rights Reserved.</p>
+		<p>&copy; {new Date().getFullYear()} Snow wolf. All Rights Reserved.</p>
 	</footer>
 </div>
 
