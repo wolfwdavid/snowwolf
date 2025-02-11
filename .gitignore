@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 test-results
+=======
+>>>>>>> 55732fa5ae9657c043781406eb6f70b0fc6e0f27
 node_modules
 
 # Output
@@ -22,6 +25,9 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+<<<<<<< HEAD
 
 # Paraglide
 src/lib/paraglide
+=======
+>>>>>>> 55732fa5ae9657c043781406eb6f70b0fc6e0f27
