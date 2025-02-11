@@ -1,11 +1,12 @@
 <script>
+	// @ts-ignore
 	import Header from './Header.svelte';
 	import '../app.css';
 	import { base } from '$app/paths';
 </script>
 
 <a href="{base}/home">Home</a>
-<a href="{base}/create_an_account">Sign Up</a>
+<a href="{base}/create_an_account">Create An Account</a>
 <div class="app">
 	<Header />
 
