@@ -1,8 +1,7 @@
 <script>
-	import { page } from '$app/state';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
-	import { base } from '$app/paths';
+	import { page } from '$app/stores'; // ✅ Fix: Import from `$app/stores`
+	import { base } from '$app/paths';  // ✅ Ensure base path is used
+
 </script>
 
 <header>
@@ -11,15 +10,14 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={page.url.pathname ==='/home' ? 'page' : undefined}>
-				<a href="/home">Home</a>
+			<li {#if page.url.pathname === `${base}/home`} aria-current="page" {/if}>
+				<a href="{base}/home">Home</a>  <!-- ✅ Fix: Respect base path -->
 			</li>
-			<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">Directory</a>
+			<li {#if page.url.pathname === `${base}/about`} aria-current="page" {/if}>
+				<a href="{base}/about">Directory</a>  <!-- ✅ Fix: Respect base path -->
 			</li>
-		
-			<li aria-current={page.url.pathname.startsWith('/create_an_account') ? 'page' : undefined}>
-				<a href="/create_an_account">Create an Account</a>
+			<li {#if page.url.pathname.startsWith(`${base}/create_an_account`)} aria-current="page" {/if}>
+				<a href="{base}/create_an_account">Create an Account</a>  <!-- ✅ Fix: Respect base path -->
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -32,15 +30,15 @@
 	/* Ensure header spans the full width of the screen */
 	header {
 		display: flex;
-		justify-content: center; /* Center the content */
+		justify-content: center;
 		align-items: center;
-		width: 100vw; /* Full viewport width */
-		background: var(--background); /* Ensures background consistency */
-		position: fixed; /* Sticks the header to the top */
+		width: 100vw;
+		background: var(--background);
+		position: fixed;
 		top: 0;
 		left: 0;
-		z-index: 1000; /* Keeps it above other content */
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow */
+		z-index: 1000;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	}
 
 	nav {
@@ -48,8 +46,8 @@
 		align-items: center;
 		justify-content: space-between;
 		width: 100%;
-		max-width: 1200px; /* Prevents content from stretching too much */
-		padding: 0 1rem; /* Adds padding for spacing */
+		max-width: 1200px;
+		padding: 0 1rem;
 	}
 
 	ul {
@@ -71,17 +69,16 @@
 		align-items: center;
 	}
 
-	/* Smaller divider using ::after pseudo-element */
 	li:not(:last-child)::after {
 		content: "";
 		position: absolute;
 		right: 0;
 		top: 50%;
 		transform: translateY(-50%);
-		height: 40%; /* Adjust to make dividers smaller */
+		height: 40%;
 		width: 1px;
 		background: var(--color-text);
-		opacity: 0.7; /* Optional: Makes divider slightly transparent */
+		opacity: 0.7;
 	}
 
 	li[aria-current='page']::before {
