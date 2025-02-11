@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
+	import { base } from '$app/paths';
 </script>
 
 <header>
@@ -16,9 +17,7 @@
 			<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">Directory</a>
 			</li>
-			<li aria-current={page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Get Listed</a>
-			</li>
+		
 			<li aria-current={page.url.pathname.startsWith('/create_an_account') ? 'page' : undefined}>
 				<a href="/create_an_account">Create an Account</a>
 			</li>

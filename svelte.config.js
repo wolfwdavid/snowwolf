@@ -1,22 +1,20 @@
-import adapter from '@sveltejs/adapter-static'; // Use static adapter for GitHub Pages
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-static';
 
-const dev = process.argv.includes('dev'); // Define "dev" for paths.base
+const dev = process.argv.includes('dev');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: vitePreprocess(),
-
-	kit: {
-		adapter: adapter(), // ✅ Fixed comma issue
-		paths: {
-			base: dev ? '' : '/snowwolf' // ✅ Fixed: dev is now defined
-		},
-		appDir: "app",
-		prerender: {
-			entries: ['*'] // ✅ Fixed bracket placement
-		}
-	}
+  kit: {
+    adapter: adapter(),
+    paths: {
+      base: dev ? '' : '/snowwolf' // Replace with your actual GitHub repo name
+    },
+    appDir: "app",
+    prerender: {
+      entries: ['*']
+    },
+    
+  }
 };
 
 export default config;
