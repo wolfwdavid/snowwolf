@@ -5,15 +5,18 @@ const dev = process.argv.includes('dev');
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: 'index.html' // ✅ Important for SPA routing
+    }),
     paths: {
-      base: dev ? '' : '/snowwolf' // Replace with your actual GitHub repo name
+      base: dev ? '' : '/snowwolf' // ✅ Ensure this matches your GitHub repo name
     },
     appDir: "app",
     prerender: {
       entries: ['*']
-    },
-    
+    }
   }
 };
 
